@@ -1,16 +1,19 @@
 package com.example.galleryviewmigexam;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.androidquery.AQuery;
+import com.example.galleryviewmigexam.PagerContainer.PageSelectListener;
 
 public class MainActivityDuo extends Activity {
 
@@ -36,10 +39,21 @@ public class MainActivityDuo extends Activity {
         //If hardware acceleration is enabled, you should also remove
         // clipping on the pager for its children.
         pager.setClipChildren(false);
+         
         
-        
-        ViewPager pagerBadge = mContainerBadge.getViewPager();
-        MyPagerAdapterBadge adapterBadge = new MyPagerAdapterBadge();
+        final ViewPager pagerBadge = mContainerBadge.getViewPager();
+        final MyPagerAdapterBadge adapterBadge = new MyPagerAdapterBadge();
+        mContainerBadge.setPageSelectListener(new PageSelectListener() {
+			
+			@Override
+			public void onPageSelected(int position) {
+				Log.v("#### " , "mContainerBadge onPageSelected=" + position);
+				if (position == adapterBadge.getCount()-1) {
+					pagerBadge.setVisibility(View.GONE);
+				}
+			}
+		});
+       
         pagerBadge.setAdapter(adapterBadge);
         //Necessary or the pager will only have one extra page to show
         // make this at least however many pages you can see
@@ -51,6 +65,7 @@ public class MainActivityDuo extends Activity {
         // clipping on the pager for its children.
         pagerBadge.setClipChildren(false);
     }
+  
  
     //Nothing special about this adapter, just throwing up colored views for demo
     private class MyPagerAdapter extends PagerAdapter {
@@ -107,7 +122,14 @@ public class MainActivityDuo extends Activity {
         	Log.v("####", "position=" + position);
         	ImageView imageView = new ImageView(MainActivityDuo.this);
         	if (position==0) {
-        		imageView.setBackgroundResource(R.drawable.b1);
+//        		imageView.setBackgroundResource(R.drawable.b1);
+        		
+        	 
+            	AQuery pq2 = new AQuery(getApplicationContext());
+//            	Bitmap bitmap = pq2.getCachedImage("http://alpha-images.hangame.co.kr/poketroket/badge/walk/walk_hellostranger.png?type=f640_550");
+            
+            	pq2.id(imageView).image("http://alpha-images.hangame.co.kr/poketroket/badge/walk/walk_hellostranger.png?type=f640_550", true, true);
+            	imageView = (ImageView)pq2.getView();
         	} else if (position==1){
         		imageView.setBackgroundResource(R.drawable.b2);
         	} else if (position==2) {

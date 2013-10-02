@@ -4,15 +4,16 @@ import android.content.Context;
 import android.graphics.Point;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.FrameLayout;
 
 public class PagerContainer extends FrameLayout implements ViewPager.OnPageChangeListener {
 	 
     private ViewPager mPager;
     boolean mNeedsRedraw = false;
- 
+    private PageSelectListener listener;
+    
     public PagerContainer(Context context) {
         super(context);
         init();
@@ -86,10 +87,22 @@ public class PagerContainer extends FrameLayout implements ViewPager.OnPageChang
     }
  
     @Override
-    public void onPageSelected(int position) { }
+    public void onPageSelected(int position) { 
+    	Log.v("###!!!", "position=" + position);
+    	if (listener != null) {
+    		listener.onPageSelected(position);
+    	}
+    }
  
     @Override
     public void onPageScrollStateChanged(int state) {
         mNeedsRedraw = (state != ViewPager.SCROLL_STATE_IDLE);
     }
+    public void setPageSelectListener(PageSelectListener _listener) {
+    	listener = _listener;
+    }
+    public interface PageSelectListener {
+    	public abstract void onPageSelected(int position);
+    }
+  
 }
