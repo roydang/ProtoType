@@ -14,12 +14,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Animation" 
-        android:onClick="startAni"/>
-
+        android:text="Animation" />
+  	<Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/button1"
+        android:text="Animation2" />
+  	<Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/button2"
+        android:text="Animation3" />  	
     <ImageView
         android:id="@+id/badge_01"
-        style="@style/AnimationPopup"
+        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button1"
@@ -27,5 +37,22 @@
         android:layout_marginTop="17dp"
         android:background="@drawable/dummy_badge_d_01"
         android:visibility="gone" />
-
+    <ImageView
+        android:id="@+id/badge_02"
+        android:layout_below="@+id/badge_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/dummy_badge_d_02"
+        android:visibility="gone" />
+    <ImageView
+        android:id="@+id/badge_03"
+        android:layout_below="@+id/badge_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/dummy_badge_d_03"
+        android:visibility="visible" />    
 </RelativeLayout>
