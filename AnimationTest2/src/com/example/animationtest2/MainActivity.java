@@ -43,7 +43,7 @@ public class MainActivity extends FragmentActivity implements
 						android.R.layout.simple_list_item_1,
 						android.R.id.text1, new String[] {
 								PopUpTestFragment.title,
-								getString(R.string.title_section2),
+								MenuSpreadFragment.title,
 								getString(R.string.title_section3), }), this);
 	}
 
@@ -92,6 +92,10 @@ public class MainActivity extends FragmentActivity implements
 		if (position == 0) {
 			
 			Fragment fragment = new PopUpTestFragment();
+			getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+		} else if (position == 1) {
+			
+			MenuSpreadFragment fragment = new MenuSpreadFragment();
 			getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
 		} else {
 			Fragment fragment = new DummySectionFragment();

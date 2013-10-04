@@ -14,37 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Anim" />
-  	<Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/button1"
-        android:text="Anim2" />
-  	<Button
-        android:id="@+id/OAnim1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/button2"
-        android:text="OAnim1" />  	
-  	<Button
-        android:id="@+id/OAnim2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/OAnim1"
-        android:text="OAnim2" />  	
-  	<Button
-        android:id="@+id/OAnim3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/OAnim2"
-        android:text="OAnim3" />  	
-  	<Button
-        android:id="@+id/OAnim4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/OAnim3"
-        android:text="OAnim4" />  	                        
+        android:text="Animation" />
+  
     <ImageView
         android:id="@+id/badge_01"
         
@@ -54,7 +25,7 @@
         android:layout_below="@+id/button1"
         android:layout_marginTop="17dp"
         android:background="@drawable/dummy_badge_d_01"
-        android:visibility="gone" />
+        android:visibility="visible" />
     <ImageView
         android:id="@+id/badge_02"
         android:layout_below="@+id/badge_01"
@@ -63,7 +34,7 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_marginTop="17dp"
         android:background="@drawable/dummy_badge_d_02"
-        android:visibility="gone" />
+        android:visibility="visible" />
     <ImageView
         android:id="@+id/badge_03"
         android:layout_below="@+id/badge_02"
@@ -72,5 +43,5 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_marginTop="17dp"
         android:background="@drawable/dummy_badge_d_03"
-        android:visibility="visible" />    
+        android:visibility="gone" />    
 </RelativeLayout>

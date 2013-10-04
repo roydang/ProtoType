@@ -81,24 +81,60 @@ public class PopUpTestFragment extends Fragment {
 				}
 			}			
 		});
-		Button startAni3 = (Button)rootView.findViewById(R.id.button3);
-		startAni3.setOnClickListener(new OnClickListener() {
+		Button oAni1 = (Button)rootView.findViewById(R.id.OAnim1);
+		oAni1.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				ImageView badge03 = (ImageView)rootView.findViewById(R.id.badge_03);
+				ImageView img = (ImageView)rootView.findViewById(R.id.badge_03);
 			 
-					
-					startAnimation();
+		    	nineOldAni(img);
+		        bounceAnim.start();
+			 
+			}
+		});
+		Button oAni2 = (Button)rootView.findViewById(R.id.OAnim2);
+		oAni2.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ImageView img = (ImageView)rootView.findViewById(R.id.badge_03);
+				 
+		    	nineOldAni2(img);
+		        bounceAnim.start();
+			 
+			}
+		});
+		Button OAnim3 = (Button)rootView.findViewById(R.id.OAnim3);
+		OAnim3.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ImageView img = (ImageView)rootView.findViewById(R.id.badge_03);
+				 
+		    	nineOldAni3(img);
+		        bounceAnim.start();
+			 
+			}
+		});
+		Button OAnim4 = (Button)rootView.findViewById(R.id.OAnim4);
+		OAnim4.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+
+				ImageView img = (ImageView)rootView.findViewById(R.id.badge_03);
+				 
+		    	nineOldAni4(img);
+		        bounceAnim.start();
 			 
 			}
 		});
 		
-		
 	}
 	
-	public void nineOldAni() {
-		ImageView ball = (ImageView)rootView.findViewById(R.id.badge_03);
+	public void nineOldAni(ImageView ball) {
+	
 
 		  PropertyValuesHolder pvhW = PropertyValuesHolder.ofFloat("width", ball.getWidth(),   ball.getWidth() * 2);
           PropertyValuesHolder pvhH = PropertyValuesHolder.ofFloat("height", ball.getHeight(),  ball.getHeight() * 2);
@@ -110,9 +146,8 @@ public class PopUpTestFragment extends Fragment {
           bounceAnim = new AnimatorSet();
           ((AnimatorSet)bounceAnim).playTogether(whxyBouncer);
 	}
-	public void nineOldAni2() {
-		ImageView ball = (ImageView)rootView.findViewById(R.id.badge_03);
-
+	public void nineOldAni2(ImageView ball) {
+	
 		PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("y", ball.getY(), ball.getHeight() - BALL_SIZE);
           float ballX = ball.getX();
           Keyframe kf0 = Keyframe.ofFloat(0f, ballX);
@@ -126,8 +161,8 @@ public class PopUpTestFragment extends Fragment {
           ((AnimatorSet)bounceAnim).playTogether(yxBouncer);
 	
 	}
-	public void nineOldAni3() {
-		ImageView ball = (ImageView)rootView.findViewById(R.id.badge_03);
+	public void nineOldAni3(ImageView ball) {
+	
         PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("y", ball.getY(), ball.getHeight() - BALL_SIZE);
         PropertyValuesHolder pvhAlpha = PropertyValuesHolder.ofFloat("alpha", 1.0f, 0f);
         ObjectAnimator yAlphaBouncer = ObjectAnimator.ofPropertyValuesHolder(ball,   pvhY, pvhAlpha).setDuration(DURATION/2);
@@ -138,8 +173,8 @@ public class PopUpTestFragment extends Fragment {
           ((AnimatorSet)bounceAnim).playTogether(yAlphaBouncer);
 	
 	}	
-	public void nineOldAni4() {
-		ImageView ball = (ImageView)rootView.findViewById(R.id.badge_03);
+	public void nineOldAni4(ImageView ball) {
+		
         ObjectAnimator yBouncer = ObjectAnimator.ofFloat(ball, "y",  ball.getY(), ball.getHeight() - BALL_SIZE).setDuration(DURATION);
         yBouncer.setInterpolator(new CycleInterpolator(2));
 
@@ -152,9 +187,9 @@ public class PopUpTestFragment extends Fragment {
 	 float BALL_SIZE = 100f;
 	 int DURATION = 1500;
 	Animator bounceAnim;
-    public void startAnimation() {
-    	nineOldAni4();
-        bounceAnim.start();
-    }
+//    public void startAnimation() {
+//    	nineOldAni4();
+//        bounceAnim.start();
+//    }
     
 }
